@@ -1,0 +1,59 @@
+:root {
+    font-family: system-ui, sans-serif;
+    color: #1f2937;
+    background: #f7f8fa;
+    line-height: 1.6;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+h1, h2 { line-height: 1.2; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); }
+a { color: #176248; }
+button, input { font: inherit; }
+
+.home { min-height: 100vh; display: grid; place-items: center; text-align: center; }
+.home main { max-width: 650px; }
+.home .button { margin-top: 12px; }
+
+.button, button {
+    display: inline-block;
+    padding: 10px 18px;
+    border: 1px solid #176248;
+    border-radius: 6px;
+    background: #176248;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+.button:hover, button:hover { background: #104c37; }
+:focus-visible { outline: 3px solid #b45e00; outline-offset: 3px; }
+
+.search { max-width: 600px; margin: 28px 0 20px; }
+.search label { display: block; margin-bottom: 6px; font-weight: 600; }
+.search-controls { display: flex; gap: 10px; }
+input { width: 100%; min-width: 0; padding: 10px 12px; border: 1px solid #9ca3af; border-radius: 6px; }
+.products { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 24px; }
+.card { overflow: hidden; background: white; border: 1px solid #dce1e6; border-radius: 10px; }
+.card-content { padding: 22px; }
+.card-content h2 { margin-top: 0; }
+.product-image { display: block; width: 100%; height: auto; background: #eaf0ed; object-fit: contain; }
+.product-description { color: #4b5563; }
+.price { color: #176248; font-size: 1.4rem; font-weight: 700; }
+.stock, .muted { color: #59636f; }
+.error { color: #a12222; }
+.detail { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; align-items: start; margin-top: 28px; }
+.detail > * { min-width: 0; }
+.detail .product-image { border: 1px solid #dce1e6; border-radius: 10px; }
+.detail h1 { margin-top: 8px; }
+.eyebrow { color: #176248; font-weight: 600; margin: 0; }
+dt { font-weight: 600; }
+dd { margin: 0 0 16px; }
+
+@media (max-width: 650px) {
+    main { padding: 28px 18px; }
+    .detail { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    .search-controls { flex-wrap: wrap; }
+}

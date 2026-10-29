@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+products.db
+products.db-journal
+products.db-wal
+products.db-shm
