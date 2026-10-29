@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Catalog | Legendry Vehicles</title>
+    <link rel="icon" href="/vehicle.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js" defer></script>
+</head>
+<body data-page="catalog">
+    <main>
+        <a href="/">&larr; Home</a>
+        <h1>Vehicle Catalog</h1>
+        <p>Browse our sample vehicles and open a product to see its details.</p>
+
+        <form class="search" action="/products/index.html" method="get">
+            <label for="search">Search vehicles</label>
+            <div class="search-controls">
+                <input id="search" name="q" type="search" maxlength="100" placeholder="Search by name or description">
+                <button type="submit">Search</button>
+            </div>
+        </form>
+
+        <p id="status" role="status" aria-live="polite">Loading vehicles...</p>
+        <section id="products" class="products" aria-label="Available vehicles"></section>
+    </main>
+
+    <template id="product-card">
+        <article class="card">
+            <img class="product-image" alt="Sample vehicle illustration" width="640" height="360">
+            <div class="card-content">
+                <h2 class="product-name"></h2>
+                <p class="product-description"></p>
+                <p class="price"></p>
+                <p class="stock"></p>
+                <a class="button details-link">View details</a>
+            </div>
+        </article>
+    </template>
+</body>
+</html>
