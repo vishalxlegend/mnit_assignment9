@@ -3,14 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legendry Vehicles</title>
+    <title>Legendry Toy Cars</title>
     <link rel="icon" href="/vehicle.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/style.css">
+    <script src="/script.js" defer></script>
 </head>
-<body class="home">
+<body class="home" data-page="home">
     <main>
-        <h1>Legendry Vehicles</h1>
-        <p>Welcome to our legendary vehicles collection!</p>
+        <nav class="account-nav" aria-label="Account navigation">
+            <a href="/">Home</a>
+            <a href="/products/index.html">Catalog</a>
+            <a href="/cart.html">My cart</a>
+            <span id="account-name"></span>
+            <button id="logout" type="button">Log out</button>
+        </nav>
+        <p id="status" role="status" aria-live="polite"></p>
+        <h1>Legendry Toy Cars</h1>
+        <p>Explore our collection of miniature toy cars and vehicles!</p>
         <a class="button" href="/products/index.html">Browse Catalog</a>
     </main>
 </body>

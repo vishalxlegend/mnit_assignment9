@@ -1,4 +1,4 @@
--- This file creates the database and sample data on the first run.
+-- Reference schema and sample data. Application setup uses Alembic revisions.
 -- Prices are integer paise: 100 paise = 1 rupee.
 CREATE TABLE products (
     id INTEGER PRIMARY KEY,
@@ -11,93 +11,42 @@ CREATE TABLE products (
 
 INSERT INTO products (id, name, description, price_paise, image_url, stock)
 VALUES
-    (1, 'City Hatchback',
-     'A compact petrol hatchback with a manual transmission, five seats, and an easy-to-park design for daily city trips.',
-     65000000, '/products/images/1.jpg', 5),
-    (2, 'Comfort Sedan',
-     'A spacious five-seat sedan with an automatic transmission, generous boot space, and a comfortable cabin for longer journeys.',
-     98000000, '/products/images/2.jpg', 3),
-    (3, 'Adventure SUV',
-     'A versatile five-seat SUV with an automatic transmission, higher ground clearance, and room for family luggage.',
-     145000000, '/products/images/3.jpg', 2);
+    (1, 'City Hatchback Toy', 'A miniature hatchback toy for a city-themed vehicle collection.', 65000, '/products/images/1.jpg', 5),
+    (2, 'Comfort Sedan Toy', 'A sedan toy model for pretend city journeys and display.', 98000, '/products/images/2.jpg', 3),
+    (3, 'Adventure SUV Toy', 'An SUV toy model for imaginary family adventures.', 145000, '/products/images/3.jpg', 2),
+    (4, 'Electric City Toy', 'A toy model inspired by a compact electric city car.', 105000, '/products/images/4.jpg', 6),
+    (5, 'Family MPV Toy', 'A miniature MPV for pretend family road trips.', 125000, '/products/images/5.jpg', 4),
+    (6, 'Sport Hatchback Toy', 'A sporty hatchback toy for an imaginary racing collection.', 92000, '/products/images/6.jpg', 3),
+    (7, 'Executive Sedan Toy', 'An executive sedan toy model for a miniature car collection.', 185000, '/products/images/7.jpg', 2),
+    (8, 'Compact SUV Toy', 'A compact SUV toy for pretend city adventures.', 110000, '/products/images/8.jpg', 7),
+    (9, 'Touring Wagon Toy', 'A miniature touring wagon for imaginary road trips.', 138000, '/products/images/9.jpg', 3),
+    (10, 'Hybrid Sedan Toy', 'A toy sedan model inspired by hybrid car styling.', 210000, '/products/images/10.jpg', 4),
+    (11, 'Urban Crossover Toy', 'An urban crossover toy for a miniature city collection.', 118000, '/products/images/11.jpg', 5),
+    (12, 'Electric SUV Toy', 'A toy SUV model inspired by electric vehicle styling.', 245000, '/products/images/12.jpg', 2),
+    (13, 'Budget Hatchback Toy', 'A simple hatchback toy for starting a car collection.', 48000, '/products/images/13.jpg', 10),
+    (14, 'Premium SUV Toy', 'A premium-style SUV toy model for play and display.', 320000, '/products/images/14.jpg', 1),
+    (15, 'Offroad Explorer Toy', 'An offroad-inspired toy vehicle for imaginary expeditions.', 280000, '/products/images/15.jpg', 3),
+    (16, 'City CNG Toy', 'A miniature toy model inspired by a city CNG hatchback.', 78000, '/products/images/16.jpg', 8),
+    (17, 'Luxury Sedan Toy', 'A luxury-style sedan toy for a miniature vehicle display.', 450000, '/products/images/17.jpg', 1),
+    (18, 'Utility Pickup Toy', 'A pickup truck toy model for pretend worksite adventures.', 225000, '/products/images/18.jpg', 4),
+    (19, 'Cargo Van Toy', 'A miniature cargo van for imaginary delivery rounds.', 125000, '/products/images/19.jpg', 6),
+    (20, 'Sports Coupe Toy', 'A sports coupe toy model for a sporty car collection.', 350000, '/products/images/20.jpg', 0);
 
-
-INSERT INTO products (id, name, description, price_paise, image_url, stock)
-VALUES (1, 'City Hatchback', 'Compact petrol hatchback with manual transmission and five seats.', 65000000, '/products/images/1.jpg', 5)
-ON CONFLICT(id) DO NOTHING;
-
-INSERT INTO products (id, name, description, price_paise, image_url, stock)
-VALUES (2, 'Comfort Sedan', 'Spacious automatic sedan with five seats and a large boot.', 98000000, '/products/images/2.jpg', 3)
-ON CONFLICT(id) DO NOTHING;
-
-INSERT INTO products (id, name, description, price_paise, image_url, stock)
-VALUES (3, 'Adventure SUV', 'Family SUV with automatic transmission and high ground clearance.', 145000000, '/products/images/3.jpg', 2)
-ON CONFLICT(id) DO NOTHING;
-
-INSERT INTO products (id, name, description, price_paise, image_url, stock)
-VALUES (4, 'Electric City', 'Compact electric car for quiet and efficient city travel.', 105000000, '/products/images/4.jpg', 6)
-ON CONFLICT(id) DO NOTHING;
-
-INSERT INTO products (id, name, description, price_paise, image_url, stock)
-VALUES (5, 'Family MPV', 'Seven-seat petrol MPV with flexible luggage space.', 125000000, '/products/images/5.jpg', 4)
-ON CONFLICT(id) DO NOTHING;
-
-INSERT INTO products (id, name, description, price_paise, image_url, stock)
-VALUES (6, 'Sport Hatchback', 'Petrol hatchback with a turbo engine and manual transmission.', 92000000, '/products/images/6.jpg', 3)
-ON CONFLICT(id) DO NOTHING;
-
-INSERT INTO products (id, name, description, price_paise, image_url, stock)
-VALUES (7, 'Executive Sedan', 'Premium automatic sedan with a spacious rear cabin.', 185000000, '/products/images/7.jpg', 2)
-ON CONFLICT(id) DO NOTHING;
-
-INSERT INTO products (id, name, description, price_paise, image_url, stock)
-VALUES (8, 'Compact SUV', 'Five-seat petrol SUV with a compact body for city driving.', 110000000, '/products/images/8.jpg', 7)
-ON CONFLICT(id) DO NOTHING;
-
-INSERT INTO products (id, name, description, price_paise, image_url, stock)
-VALUES (9, 'Touring Wagon', 'Comfortable family wagon with generous luggage capacity.', 138000000, '/products/images/9.jpg', 3)
-ON CONFLICT(id) DO NOTHING;
-
-INSERT INTO products (id, name, description, price_paise, image_url, stock)
-VALUES (10, 'Hybrid Sedan', 'Petrol-electric hybrid sedan with automatic transmission.', 210000000, '/products/images/10.jpg', 4)
-ON CONFLICT(id) DO NOTHING;
-
-INSERT INTO products (id, name, description, price_paise, image_url, stock)
-VALUES (11, 'Urban Crossover', 'Compact crossover with five seats and a raised driving position.', 118000000, '/products/images/11.jpg', 5)
-ON CONFLICT(id) DO NOTHING;
-
-INSERT INTO products (id, name, description, price_paise, image_url, stock)
-VALUES (12, 'Electric SUV', 'Battery-powered family SUV with an automatic drivetrain.', 245000000, '/products/images/12.jpg', 2)
-ON CONFLICT(id) DO NOTHING;
-
-INSERT INTO products (id, name, description, price_paise, image_url, stock)
-VALUES (13, 'Budget Hatchback', 'Affordable petrol hatchback with manual transmission.', 48000000, '/products/images/13.jpg', 10)
-ON CONFLICT(id) DO NOTHING;
-
-INSERT INTO products (id, name, description, price_paise, image_url, stock)
-VALUES (14, 'Premium SUV', 'Seven-seat automatic SUV with a premium interior.', 320000000, '/products/images/14.jpg', 1)
-ON CONFLICT(id) DO NOTHING;
-
-INSERT INTO products (id, name, description, price_paise, image_url, stock)
-VALUES (15, 'Offroad Explorer', 'Four-wheel-drive SUV designed for rough terrain.', 280000000, '/products/images/15.jpg', 3)
-ON CONFLICT(id) DO NOTHING;
-
-INSERT INTO products (id, name, description, price_paise, image_url, stock)
-VALUES (16, 'City CNG', 'Petrol and CNG hatchback with a manual transmission.', 78000000, '/products/images/16.jpg', 8)
-ON CONFLICT(id) DO NOTHING;
-
-INSERT INTO products (id, name, description, price_paise, image_url, stock)
-VALUES (17, 'Luxury Sedan', 'Premium sedan with automatic transmission and a refined cabin.', 450000000, '/products/images/17.jpg', 1)
-ON CONFLICT(id) DO NOTHING;
-
-INSERT INTO products (id, name, description, price_paise, image_url, stock)
-VALUES (18, 'Utility Pickup', 'Double-cab pickup with an open load bed for work and travel.', 225000000, '/products/images/18.jpg', 4)
-ON CONFLICT(id) DO NOTHING;
-
-INSERT INTO products (id, name, description, price_paise, image_url, stock)
-VALUES (19, 'Cargo Van', 'Practical commercial van with an enclosed cargo area.', 125000000, '/products/images/19.jpg', 6)
-ON CONFLICT(id) DO NOTHING;
-
-INSERT INTO products (id, name, description, price_paise, image_url, stock)
-VALUES (20, 'Sports Coupe', 'Two-door petrol coupe with an automatic transmission.', 350000000, '/products/images/20.jpg', 0)
-ON CONFLICT(id) DO NOTHING;
+-- Idempotent: reference definitions for users and carts.
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL CHECK (length(name) BETWEEN 1 AND 100),
+    username TEXT NOT NULL COLLATE NOCASE UNIQUE,
+    password_hash TEXT NOT NULL,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE IF NOT EXISTS carts (
+    id INTEGER PRIMARY KEY,
+    user_id INTEGER NOT NULL UNIQUE REFERENCES users(id) ON DELETE CASCADE
+);
+CREATE TABLE IF NOT EXISTS cart_items (
+    cart_id INTEGER NOT NULL REFERENCES carts(id) ON DELETE CASCADE,
+    product_id INTEGER NOT NULL REFERENCES products(id) ON DELETE CASCADE,
+    quantity INTEGER NOT NULL CHECK (quantity BETWEEN 1 AND 99),
+    PRIMARY KEY (cart_id, product_id)
+);
