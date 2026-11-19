@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ 'Register' if mode == 'register' else 'Login' }} | Legendry Toy Cars</title>
+    <link rel="icon" href="/vehicle.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <main class="auth-page">
+        <p class="eyebrow">Legendry Toy Cars</p>
+        <h1>{{ 'Create your account' if mode == 'register' else 'Welcome back' }}</h1>
+        <p>Log in to browse toy vehicles and manage your own shopping cart.</p>
+        {% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+        <form class="auth-form" method="post" action="{{ url_for(mode) }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="next" value="{{ next_url }}">
+            {% if mode == 'register' %}
+            <label for="name">Name</label>
+            <input id="name" name="name" autocomplete="name" maxlength="100" required value="{{ request.form.get('name', '') }}">
+            {% endif %}
+            <label for="username">Username</label>
+            <input id="username" name="username" autocomplete="username" minlength="3" maxlength="30" pattern="[A-Za-z0-9_]{3,30}" required value="{{ request.form.get('username', '') }}" aria-describedby="username-help">
+            <small id="username-help">3–30 letters, numbers or underscores. Not case-sensitive.</small>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" autocomplete="{{ 'new-password' if mode == 'register' else 'current-password' }}" minlength="{{ 8 if mode == 'register' else 1 }}" maxlength="128" required>
+            {% if mode == 'register' %}
+            <small>Use 8–128 characters.</small>
+            <label for="confirm-password">Confirm password</label>
+            <input id="confirm-password" name="confirm_password" type="password" autocomplete="new-password" minlength="8" maxlength="128" required>
+            {% endif %}
+            <button type="submit">{{ 'Create account' if mode == 'register' else 'Log in' }}</button>
+        </form>
+        {% if mode == 'register' %}
+        <p>Already registered? <a href="{{ url_for('login', next=next_url) }}">Log in</a></p>
+        {% else %}
+        <p>New here? <a href="{{ url_for('register', next=next_url) }}">Create an account</a></p>
+        {% endif %}
+    </main>
+</body>
+</html>

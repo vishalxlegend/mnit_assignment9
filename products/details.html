@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details | Legendry Vehicles</title>
+    <title>Product Details | Legendry Toy Cars</title>
     <link rel="icon" href="/vehicle.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/style.css">
     <script src="/script.js" defer></script>
 </head>
 <body data-page="details">
     <main>
+        <nav class="account-nav" aria-label="Account navigation">
+            <a href="/">Home</a>
+            <a href="/products/index.html">Catalog</a>
+            <a href="/cart.html">My cart</a>
+            <span id="account-name"></span>
+            <button id="logout" type="button">Log out</button>
+        </nav>
         <a href="/products/index.html">&larr; Back to catalog</a>
         <p id="status" role="status" aria-live="polite">Loading product...</p>
         <section id="product" aria-label="Product details"></section>
@@ -17,9 +24,9 @@
 
     <template id="product-detail">
         <article class="detail">
-            <img class="product-image" alt="Sample vehicle illustration" width="640" height="360">
+            <img class="product-image" alt="Illustrative vehicle image for a toy model" width="640" height="360">
             <div>
-                <p class="eyebrow">Legendry Vehicles</p>
+                <p class="eyebrow">Legendry Toy Cars</p>
                 <h1 class="product-name"></h1>
                 <p class="product-description"></p>
                 <dl>
@@ -30,7 +37,8 @@
                     <dt>Product ID</dt>
                     <dd class="product-id"></dd>
                 </dl>
-                <p class="muted">Illustrative image. These are sample products for the assignment.</p>
+                <div class="cart-controls"></div>
+                <p class="muted">Toy model. Images are illustrative placeholders. These are sample products for the assignment.</p>
             </div>
         </article>
     </template>
